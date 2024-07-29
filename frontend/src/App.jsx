@@ -16,10 +16,11 @@ function RegisterAndLogout() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg">
-          <NavBar/>
-      </div>
+
+      <NavBar/>
+
       <Routes>
+        {/* Routes for the content pages*/}
         <Route
           path="/"
           element={
@@ -28,6 +29,8 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* Routes for the Authentication pages */}
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/register" element={<RegisterAndLogout />} />
