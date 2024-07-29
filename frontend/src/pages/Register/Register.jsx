@@ -1,7 +1,7 @@
+import { Form } from "../../components"
+
 function Register() {
-    return (
-        <h1>Register is here.</h1>
-    )
+    return <Form route="/api/user/register/" method="register" />
 }
 
 export default Register
