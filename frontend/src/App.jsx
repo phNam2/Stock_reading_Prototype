@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { Home, Login, Register, NotFound } from './pages'
+import { Home, Login, Register, NotFound, StockList } from './pages'
 import ProtectedRoute from "./components/ProtectedRoute"
 
 function Logout() {
