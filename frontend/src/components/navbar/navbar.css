@@ -24,3 +24,7 @@
 .nav-link:hover {
     text-decoration: none;
 }
+
+.nav-item > h1 {
+    color: white;
+}
