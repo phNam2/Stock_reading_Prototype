@@ -1,6 +1,11 @@
+import { LiveChart } from "../../components"
+
 function Home() {
     return (
-        <h1>Home is here.</h1>
+        <div>
+            <h1>Home is here.</h1>
+            <LiveChart symbol={'IBM'} />
+        </div>
     )
 }
 
