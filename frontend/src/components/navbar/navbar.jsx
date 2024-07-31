@@ -11,7 +11,6 @@ function NavBar() {
     const [currname, setCurrentName] = useState()
 
     useEffect(() => {
-        console.log(location)
         if (location.pathname === '/login') {
             setIsLoggedIn("login")
         } else if (location.pathname === '/register'){

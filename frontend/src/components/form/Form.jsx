@@ -33,8 +33,6 @@ function Form({ route, method }) {
         } finally {
             setLoading(false)
         }
-
-        console.log(localStorage.getItem(currentUser))
     };
 
     return (
