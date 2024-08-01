@@ -16,7 +16,7 @@ function liveChart({symbol}) {
             // fetchStockDataPolygon(symbol).then(data =>
             //     setStockData(data)
             // )
-            fetchAllExchangePolygon().then(data =>
+            fetchAllTickerPolygon().then(data =>
                 setStockData(data)
             )
         }

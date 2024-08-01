@@ -16,7 +16,7 @@ export const fetchStockDataPolygon = async (symbol) => {
 
 
 export const fetchAllTickerPolygon = async () => {
-    const response = await axios.get(`https://api.polygon.io/v3/reference/tickers?active=true&locale=us&market=stocks&exchange=BATS&limit=1000&apiKey=${POLYGON_API_KEY}`)
+    const response = await axios.get(`https://api.polygon.io/v3/reference/tickers?active=true&locale=us&market=stocks&exchange=XNAS&type=CS&order=asc&limit=1000&apiKey=${POLYGON_API_KEY}`)
     // const response = await axios.get(`https://api.polygon.io/v3/reference/tickers?active=true&apiKey=${POLYGON_API_KEY}`)
     return response.data.results
 }
