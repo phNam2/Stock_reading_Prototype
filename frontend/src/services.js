@@ -1,5 +1,6 @@
 const ALPHAVANTAGE_API_KEY = import.meta.env.VITE_ALPHAVANTAGE_API
 const POLYGON_API_KEY= import.meta.env.VITE_POLYGON_API
+const TIINGO_API_KEY= import.meta.env.TIINGO_API_KEY
 import axios from "axios"
 
 export const fetchStockDataAlphaVantage = async (symbol) => {
@@ -24,4 +25,10 @@ export const fetchAllTickerPolygon = async () => {
 export const fetchAllExchangePolygon = async () => {
     const response = await axios.get(`https://api.polygon.io/v3/reference/exchanges?asset_class=stocks&apiKey=${POLYGON_API_KEY}`)
     return response.data.results
+}
+
+
+export const fetchStockAggregatesPolygon = async (symbol) => {
+    const response = await axios.get(`https://api.polygon.io/v2/aggs/ticker/${symbol}/range/1/year/2023-01-09/2024-07-09?adjusted=true&sort=asc&apiKey=${POLYGON_API_KEY}`)
+    return response.data
 }
