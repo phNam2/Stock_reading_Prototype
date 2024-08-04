@@ -2,7 +2,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import { fetchStockDataPolygon, 
          fetchStockDataAlphaVantage, 
          fetchAllTickerPolygon,
-         fetchAllExchangePolygon } 
+         fetchAllExchangePolygon,
+         fetchStockAggregatesPolygon,
+         fetchStockTwelveDataTimeSeries} 
     from '../../services'
 
 
@@ -13,12 +15,12 @@ function liveChart({symbol}) {
 
     useEffect(() => {
         if (effectRan.current===false){
-            // fetchStockDataPolygon(symbol).then(data =>
-            //     setStockData(data)
-            // )
-            fetchAllTickerPolygon().then(data =>
+            fetchStockTwelveDataTimeSeries(symbol).then(data =>
                 setStockData(data)
             )
+            // fetchAllTickerPolygon().then(data =>
+            //     setStockData(data)
+            // )
         }
         return () => {
             console.log("unmounted")

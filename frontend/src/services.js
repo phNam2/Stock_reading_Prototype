@@ -1,5 +1,6 @@
 const ALPHAVANTAGE_API_KEY = import.meta.env.VITE_ALPHAVANTAGE_API
 const POLYGON_API_KEY= import.meta.env.VITE_POLYGON_API
+const TWELVEDATA_API_KEY = import.meta.env.VITE_TWELVEDATA_API
 import axios from "axios"
 
 /** 
@@ -40,5 +41,9 @@ export const fetchStockAggregatesPolygon = async (symbol) => {
 
 
 /**
- * The fetching functions for
+ * The fetching functions for Twelve Data
  */
+export const fetchStockTwelveDataTimeSeries = async (symbol) => {
+    const response = await axios.get(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1week&start_date=2019-08-09&end_date=2021-08-12&apikey=${TWELVEDATA_API_KEY}`)
+    return response.data
+}
