@@ -4,13 +4,14 @@ import { fetchStockDataPolygon,
          fetchAllTickerPolygon,
          fetchAllExchangePolygon,
          fetchStockAggregatesPolygon,
-         fetchStockTwelveDataTimeSeries} 
+         fetchStockTwelveDataTimeSeries,
+         getDataTest} 
     from '../../services'
 
 
 function liveChart({symbol}) {
 
-    const [stockData, setStockData] = useState(null)
+    const [stockData, setStockData] = useState([])
     var effectRan = useRef(false) // prevent the API calling many times
 
     useEffect(() => {
@@ -18,7 +19,7 @@ function liveChart({symbol}) {
             fetchStockTwelveDataTimeSeries(symbol).then(data =>
                 setStockData(data)
             )
-            // fetchAllTickerPolygon().then(data =>
+            // getDataTest().then(data =>
             //     setStockData(data)
             // )
         }
@@ -31,7 +32,8 @@ function liveChart({symbol}) {
 
 
     return (
-        <h1>Live Chart is here</h1>
+        <h1>LOL</h1>
+        // <h1>{stockData[0].close}</h1>
     )
 }
 
