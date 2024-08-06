@@ -3,9 +3,6 @@ const POLYGON_API_KEY= import.meta.env.VITE_POLYGON_API
 const TWELVEDATA_API_KEY = import.meta.env.VITE_TWELVEDATA_API
 import axios from "axios"
 
-import { tsvParse, csvParse } from  "d3-dsv"
-import { timeParse } from "d3-time-format"
-
 /** 
  * The fetching functions for Alpha Advantage
  */
@@ -52,27 +49,5 @@ export const fetchStockTwelveDataTimeSeries = async (symbol) => {
 }
 
 /**
- * The tetching function from the Stock React tét
+ * The tetching function from the
  */
-function parseData(parse) {
-	return function(d) {
-		d.date = parse(d.date);
-		d.open = +d.open;
-		d.high = +d.high;
-		d.low = +d.low;
-		d.close = +d.close;
-		d.volume = +d.volume;
-
-		return d;
-	};
-}
-
-const parseDate = timeParse("%Y-%m-%d");
-
-export const getDataTest = async () => {
-	const promiseMSFT = await fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
-		.then(response => response.text())
-		.then(data => tsvParse(data, parseData(parseDate)))
-    console.log("Done")
-	return promiseMSFT;
-}

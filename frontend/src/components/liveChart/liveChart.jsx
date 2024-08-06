@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { CandelStickChart } from '../../components'
 import { fetchStockDataPolygon, 
          fetchStockDataAlphaVantage, 
          fetchAllTickerPolygon,
@@ -32,7 +33,12 @@ function liveChart({symbol}) {
 
 
     return (
-        <h1>LOL</h1>
+
+        <div>
+            <h1>Chart Page is here</h1>
+            <CandelStickChart/>
+        </div>
+        
         // <h1>{stockData[0].close}</h1>
     )
 }
