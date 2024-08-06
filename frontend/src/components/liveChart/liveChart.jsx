@@ -5,8 +5,7 @@ import { fetchStockDataPolygon,
          fetchAllTickerPolygon,
          fetchAllExchangePolygon,
          fetchStockAggregatesPolygon,
-         fetchStockTwelveDataTimeSeries,
-         getDataTest} 
+         fetchStockTwelveDataTimeSeries} 
     from '../../services'
 
 
