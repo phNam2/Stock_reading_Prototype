@@ -40,11 +40,11 @@ function liveChart() {
 
         <div>
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
-            <ul>
+            {/* <ul>
                 {stocksList.map((stock, index) => (
                     <i id={index}>{stock.symbol}</i>
                 ))}
-            </ul>
+            </ul> */}
             <CandelStickChart stockValues={stockDataValues}/>
         </div>
     )
