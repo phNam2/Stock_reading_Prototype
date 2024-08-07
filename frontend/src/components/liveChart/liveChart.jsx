@@ -40,9 +40,6 @@ function liveChart() {
                     <h1>{item.open}</h1>
                 ))}
             </ul> */}
-
-
-            
             <CandelStickChart stockValues={stockDataValues}/>
         </div>
     )
