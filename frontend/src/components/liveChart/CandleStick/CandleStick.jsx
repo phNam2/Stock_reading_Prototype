@@ -21,6 +21,14 @@ function CandelStickChart({stockValues}) {
       xaxis: {
         type: 'datetime',
       },
+      plotOptions: {
+        candlestick: {
+          colors: {
+            upward: '#3C90EB',
+            downward: '#DF7D46'
+          }
+        }
+      },
     }
   
   const series = [
