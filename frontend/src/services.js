@@ -12,12 +12,6 @@ export const fetchStockDataAlphaVantage = async (symbol) => {
 }
 
 
-
-
-
-
-
-
 /**
  * The fetching functions for Twelve Data
  */
