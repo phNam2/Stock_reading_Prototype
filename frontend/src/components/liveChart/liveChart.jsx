@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { CandelStickChart } from '../../components'
 import { fetchStockDataAlphaVantage, 
-         fetchStockTwelveDataTimeSeries} 
+         fetchStockTwelveDataTimeSeries,
+         fetchStockTwelveStocks} 
     from '../../services'
 
 
 function liveChart() {
 
+    const [stocksList, setStockList] = useState([])
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
 
@@ -14,14 +16,16 @@ function liveChart() {
     var effectRan = useRef(false) // prevent the API calling many times
     useEffect(() => {
         if (effectRan.current===false){
-            
+            fetchStockTwelveStocks().then (data => 
+                setStockList(data)
+            )
         }
         return () => {
             console.log("unmounted")
             effectRan = true
         }
     }, [])
-
+    console.log(stocksList)
 
     // Function used to draw the CandleStick Chart from the input symbol
     function printCandleStickChart (symbol) {

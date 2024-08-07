@@ -19,3 +19,9 @@ export const fetchStockTwelveDataTimeSeries = async (symbol) => {
     const response = await axios.get(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1week&start_date=2019-08-09&end_date=2021-08-12&apikey=${TWELVEDATA_API_KEY}`)
     return [response.data.meta, response.data.values]
 }
+
+
+export const fetchStockTwelveStocks = async () => {
+    const response = await axios.get(`https://api.twelvedata.com/stocks?country=USA`)
+    return response.data
+}
