@@ -7,30 +7,38 @@ import { fetchStockDataAlphaVantage,
 
 function liveChart({symbol}) {
 
-    const [stockData, setStockData] = useState([])
+    const [stockDataMeta, setStockDataMeta] = useState([])
+    const [stockDataValues, setStockDataValues] = useState([])
     var effectRan = useRef(false) // prevent the API calling many times
 
     useEffect(() => {
         if (effectRan.current===false){
-            fetchStockTwelveDataTimeSeries(symbol).then(data =>
-                setStockData(data)
-            )
-            // getDataTest().then(data =>
-            //     setStockData(data)
-            // )
+            fetchStockTwelveDataTimeSeries(symbol).then(data => {
+                setStockDataMeta(data[0])
+                setStockDataValues(data[1])
+            })
         }
         return () => {
             console.log("unmounted")
             effectRan = true
         }
     }, [])
-    console.log(stockData)
+    console.log(stockDataMeta)
+    console.log(stockDataValues)
 
 
     return (
 
         <div>
             <h1>Chart Page is here</h1>
+
+            {/* <ul>
+                {stockDataValues.map((item, index) => (
+                    <h1>{item.open}</h1>
+                ))}
+            </ul> */}
+
+
             <CandelStickChart/>
         </div>
         
