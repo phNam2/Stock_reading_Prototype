@@ -4,12 +4,12 @@ import Chart from "react-apexcharts";
 
 function CandelStickChart({stockValues}) {
 
-  const parseValues = stockValues.map(values => [
-    values.datetime,
-    parseFloat(values.open), // Convert string to a numeric value (assuming 'open' is always a number)
-    parseFloat(values.high),
-    parseFloat(values.low),
-    parseFloat(values.close)
+  const parseValues = stockValues.map(value => [
+    value.datetime,
+    parseFloat(value.open), // Convert string to a numeric value (assuming 'open' is always a number)
+    parseFloat(value.high),
+    parseFloat(value.low),
+    parseFloat(value.close)
   ]);
 
   // console.log(parseValues)
