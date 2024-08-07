@@ -24,13 +24,12 @@ function liveChart({symbol}) {
         }
     }, [])
     console.log(stockDataMeta)
-    console.log(stockDataValues)
 
 
     return (
 
         <div>
-            <h1>Chart Page is here</h1>
+            <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
 
             {/* <ul>
                 {stockDataValues.map((item, index) => (
@@ -39,10 +38,8 @@ function liveChart({symbol}) {
             </ul> */}
 
 
-            <CandelStickChart/>
+            <CandelStickChart stockValues={stockDataValues}/>
         </div>
-        
-        // <h1>{stockData[0].close}</h1>
     )
 }
 
