@@ -23,5 +23,5 @@ export const fetchStockTwelveDataTimeSeries = async (symbol) => {
 
 export const fetchStockTwelveStocks = async () => {
     const response = await axios.get(`https://api.twelvedata.com/stocks?country=USA`)
-    return response.data
+    return response.data.data
 }

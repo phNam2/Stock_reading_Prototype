@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { CandelStickChart } from '../../components'
+import './liveChart.css'
 import { fetchStockDataAlphaVantage, 
          fetchStockTwelveDataTimeSeries,
          fetchStockTwelveStocks} 
@@ -39,11 +40,11 @@ function liveChart() {
 
         <div>
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
-            {/* <ul>
-                {stockDataValues.map((item, index) => (
-                    <h1>{item.open}</h1>
+            <ul>
+                {stocksList.map((stock, index) => (
+                    <i id={index}>{stock.symbol}</i>
                 ))}
-            </ul> */}
+            </ul>
             <CandelStickChart stockValues={stockDataValues}/>
         </div>
     )
