@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { CandelStickChart } from '../../components'
-import { fetchStockDataPolygon, 
-         fetchStockDataAlphaVantage, 
-         fetchAllTickerPolygon,
-         fetchAllExchangePolygon,
-         fetchStockAggregatesPolygon,
+import { fetchStockDataAlphaVantage, 
          fetchStockTwelveDataTimeSeries} 
     from '../../services'
 
