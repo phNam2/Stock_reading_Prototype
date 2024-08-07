@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Chart from "react-apexcharts";
+import "./CandleStick.css"
 
 
 function CandelStickChart({stockValues}) {
@@ -21,14 +22,14 @@ function CandelStickChart({stockValues}) {
       xaxis: {
         type: 'datetime',
       },
-      plotOptions: {
-        candlestick: {
-          colors: {
-            upward: '#3C90EB',
-            downward: '#DF7D46'
-          }
-        }
-      },
+      // plotOptions: {
+      //   candlestick: {
+      //     colors: {
+      //       upward: '#3C90EB',
+      //       downward: '#DF7D46'
+      //     }
+      //   }
+      // },
     }
   
   const series = [
