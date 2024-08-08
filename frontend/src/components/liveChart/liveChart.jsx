@@ -13,6 +13,7 @@ function liveChart() {
     const [stocksList, setStockList] = useState([])
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
+    const [searchResults, setSearchResults] = useState([])
 
     
     var effectRan = useRef(false) // prevent the API calling many times
@@ -27,7 +28,7 @@ function liveChart() {
             effectRan = true
         }
     }, [])
-    console.log(stocksList)
+    // console.log(stocksList)
 
     // Function used to draw the CandleStick Chart from the input symbol
     function printCandleStickChart (symbol) {
@@ -43,7 +44,7 @@ function liveChart() {
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
 
             <div className="search-bar-container">
-                <SearchBar stocksList={stocksList}/>
+                <SearchBar stocksList={stocksList} setSearchResults={setSearchResults}/>
             </div>
             {/* <ul>
                 {stocksList.map((stock, index) => (

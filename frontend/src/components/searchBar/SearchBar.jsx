@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import { FaSearch } from 'react-icons/fa'
 import './SearchBar.css'
 
-export const SearchBar = (stocksList) => {
+export const SearchBar = ({ stocksList, setSearchResults }) => {
     const [input, setInput] = useState("")
     
     function filteringData(value) {
-        const filteredData = stocksList.stocksList.filter( (stock) => {
+        const filteredData = stocksList.filter( (stock) => {
             return (value &&
                     stock &&
                     (stock.name.includes(value) ||
@@ -15,6 +15,7 @@ export const SearchBar = (stocksList) => {
                     stock.symbol.toLowerCase().includes(value)))
         })
         console.log(filteredData)
+        setSearchResults(filteredData)
     }
 
 
@@ -26,7 +27,7 @@ export const SearchBar = (stocksList) => {
     return (
         <div className='input-wrapper'>
             <FaSearch id="search-icon"/>
-            <input placeholder='Type stock symbol...' 
+            <input placeholder='Search company...' 
                    value={input} 
                    onChange={(e) => handleChange(e.target.value)}/>
         </div>
