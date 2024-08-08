@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { CandelStickChart } from '../../components'
+import { SearchBar } from '../../components'
 import './liveChart.css'
 import { fetchStockDataAlphaVantage, 
          fetchStockTwelveDataTimeSeries,
@@ -40,6 +41,10 @@ function liveChart() {
 
         <div>
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
+
+            <div className="search-bar-container">
+                <SearchBar/>
+            </div>
             {/* <ul>
                 {stocksList.map((stock, index) => (
                     <i id={index}>{stock.symbol}</i>
