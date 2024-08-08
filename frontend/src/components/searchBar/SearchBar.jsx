@@ -14,7 +14,7 @@ export const SearchBar = ({ stocksList, setSearchResults }) => {
                     stock.symbol.includes(value) ||  
                     stock.symbol.toLowerCase().includes(value)))
         })
-        console.log(filteredData)
+        // console.log(filteredData)
         setSearchResults(filteredData)
     }
 
