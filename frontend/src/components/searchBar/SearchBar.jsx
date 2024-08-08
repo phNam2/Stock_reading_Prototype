@@ -6,9 +6,13 @@ export const SearchBar = (stocksList) => {
     const [input, setInput] = useState("")
     
     function filteringData(value) {
-        const filteredData = stocksList.stocksList.filter( (user) => {
-            return (user.name &&  
-                    user.symbol.toLowerCase().includes(value))
+        const filteredData = stocksList.stocksList.filter( (stock) => {
+            return (value &&
+                    stock &&
+                    (stock.name.includes(value) ||
+                    stock.name.toLowerCase().includes(value) ||
+                    stock.symbol.includes(value) ||  
+                    stock.symbol.toLowerCase().includes(value)))
         })
         console.log(filteredData)
     }
