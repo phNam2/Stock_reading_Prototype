@@ -43,7 +43,7 @@ function liveChart() {
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
 
             <div className="search-bar-container">
-                <SearchBar/>
+                <SearchBar stocksList={stocksList}/>
             </div>
             {/* <ul>
                 {stocksList.map((stock, index) => (
