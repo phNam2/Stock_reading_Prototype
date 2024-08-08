@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { CandelStickChart } from '../../components'
-import { SearchBar } from '../../components'
+import { SearchBar, 
+         SearchResultList, 
+         CandelStickChart } from '../../components'
 import './liveChart.css'
 import { fetchStockDataAlphaVantage, 
          fetchStockTwelveDataTimeSeries,
@@ -45,6 +46,7 @@ function liveChart() {
 
             <div className="search-bar-container">
                 <SearchBar stocksList={stocksList} setSearchResults={setSearchResults}/>
+                <SearchResultList/>
             </div>
             {/* <ul>
                 {stocksList.map((stock, index) => (
