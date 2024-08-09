@@ -47,10 +47,20 @@ function liveChart() {
         <div>
             {/* The search bar for stock to enter */}
             <div className="search-bar-container">
-                <SearchBar stocksList={stocksList} setSearchResults={setSearchResults} setInput={setInput} input={input}/>
-                {searchResults && searchResults.length > 0 && <SearchResultList results={searchResults} printCandleStickChart={printCandleStickChart}/>}
+                <SearchBar stocksList={stocksList} 
+                           setSearchResults={setSearchResults} 
+                           setInput={setInput} 
+                           input={input}
+                />
+                {searchResults && 
+                 searchResults.length > 0 && 
+                 <SearchResultList results={searchResults} 
+                                   printCandleStickChart={printCandleStickChart}
+                 />}
             </div>
             
+            
+            {/* Draw the chart */}
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
             <CandelStickChart stockValues={stockDataValues}/>
         </div>
