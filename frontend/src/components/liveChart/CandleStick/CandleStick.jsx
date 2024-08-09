@@ -5,12 +5,14 @@ import "./CandleStick.css"
 
 function CandelStickChart({stockValues}) {
 
+  console.log(stockValues)
+
   const parseValues = stockValues.map(value => [
     value.datetime,
-    parseFloat(value.open), // Convert string to a numeric value (assuming 'open' is always a number)
-    parseFloat(value.high),
-    parseFloat(value.low),
-    parseFloat(value.close)
+    parseFloat(value.open).toFixed(2), // Convert string to a numeric value (assuming 'open' is always a number)
+    parseFloat(value.high).toFixed(2),
+    parseFloat(value.low).toFixed(2),
+    parseFloat(value.close).toFixed(2)
   ]);
 
   // console.log(parseValues)
