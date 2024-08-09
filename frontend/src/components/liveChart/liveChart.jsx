@@ -60,6 +60,7 @@ function liveChart() {
             </div>
             
             
+            
             {/* Draw the chart */}
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
             <CandelStickChart stockValues={stockDataValues}/>
