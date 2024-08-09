@@ -1,43 +1,57 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { CandelStickChart } from '../../components'
+import { SearchBar, 
+         SearchResultList, 
+         CandelStickChart } from '../../components'
+import './liveChart.css'
 import { fetchStockDataAlphaVantage, 
-         fetchStockTwelveDataTimeSeries} 
+         fetchStockTwelveDataTimeSeries,
+         fetchStockTwelveStocks} 
     from '../../services'
 
 
-function liveChart({symbol}) {
+function liveChart() {
 
+    const [stocksList, setStockList] = useState([])
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
-    var effectRan = useRef(false) // prevent the API calling many times
+    const [searchResults, setSearchResults] = useState([])
+    const [input, setInput] = useState("")
 
+    
+    var effectRan = useRef(false) // prevent the API calling many times
     useEffect(() => {
         if (effectRan.current===false){
-            fetchStockTwelveDataTimeSeries(symbol).then(data => {
-                setStockDataMeta(data[0])
-                setStockDataValues(data[1])
-            })
+            fetchStockTwelveStocks().then (data => 
+                setStockList(data)
+            )
         }
         return () => {
             console.log("unmounted")
             effectRan = true
         }
     }, [])
-    console.log(stockDataMeta)
+    // console.log(searchResults)
 
+    // Function used to draw the CandleStick Chart from the input symbol
+    function printCandleStickChart (symbol) {
+        fetchStockTwelveDataTimeSeries(symbol).then(data => {
+            setStockDataMeta(data[0])
+            setStockDataValues(data[1])
+            setSearchResults([])
+            setInput("")
+        })
+    }
 
     return (
 
         <div>
+            {/* The search bar for stock to enter */}
+            <div className="search-bar-container">
+                <SearchBar stocksList={stocksList} setSearchResults={setSearchResults} setInput={setInput} input={input}/>
+                {searchResults && searchResults.length > 0 && <SearchResultList results={searchResults} printCandleStickChart={printCandleStickChart}/>}
+            </div>
+            
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
-
-            {/* <ul>
-                {stockDataValues.map((item, index) => (
-                    <h1>{item.open}</h1>
-                ))}
-            </ul> */}
-
-
             <CandelStickChart stockValues={stockDataValues}/>
         </div>
     )
