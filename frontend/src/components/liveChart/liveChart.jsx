@@ -14,8 +14,8 @@ function liveChart({symbol}) {
     useEffect(() => {
         if (effectRan.current===false){
             fetchStockTwelveDataTimeSeries(symbol).then(data => {
-                setStockDataMeta(data[0])
-                setStockDataValues(data[1])
+                setStockDataMeta(data)
+                // setStockDataValues(data[1])
             })
         }
         return () => {
@@ -29,8 +29,8 @@ function liveChart({symbol}) {
     return (
 
         <div>
-            <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
-            <CandelStickChart stockValues={stockDataValues}/>
+            {/* <h1>Chart Page is here for {stockDataMeta.symbol}</h1> */}
+            {/* <CandelStickChart stockValues={stockDataValues}/> */}
         </div>
     )
 }
