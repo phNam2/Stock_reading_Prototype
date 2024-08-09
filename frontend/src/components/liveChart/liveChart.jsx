@@ -36,6 +36,7 @@ function liveChart() {
         fetchStockTwelveDataTimeSeries(symbol).then(data => {
             setStockDataMeta(data[0])
             setStockDataValues(data[1])
+            setSearchResults([])
         })
     }
 
