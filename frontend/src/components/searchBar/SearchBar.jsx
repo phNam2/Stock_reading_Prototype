@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 import { FaSearch } from 'react-icons/fa'
 import './SearchBar.css'
 
-export const SearchBar = ({ stocksList, setSearchResults }) => {
-    const [input, setInput] = useState("")
+export const SearchBar = ({ stocksList, setSearchResults, setInput, input }) => {
     
     function filteringData(value) {
         const filteredData = stocksList.filter( (stock) => {

@@ -15,6 +15,7 @@ function liveChart() {
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
     const [searchResults, setSearchResults] = useState([])
+    const [input, setInput] = useState("")
 
     
     var effectRan = useRef(false) // prevent the API calling many times
@@ -37,6 +38,7 @@ function liveChart() {
             setStockDataMeta(data[0])
             setStockDataValues(data[1])
             setSearchResults([])
+            setInput("")
         })
     }
 
@@ -45,7 +47,7 @@ function liveChart() {
         <div>
             {/* The search bar for stock to enter */}
             <div className="search-bar-container">
-                <SearchBar stocksList={stocksList} setSearchResults={setSearchResults}/>
+                <SearchBar stocksList={stocksList} setSearchResults={setSearchResults} setInput={setInput} input={input}/>
                 {searchResults && searchResults.length > 0 && <SearchResultList results={searchResults} printCandleStickChart={printCandleStickChart}/>}
             </div>
             
