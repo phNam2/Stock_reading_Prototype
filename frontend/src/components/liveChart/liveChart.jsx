@@ -1,19 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { SearchBar, 
          SearchResultList, 
-         CandelStickChart } from '../../components'
+         CandelStickChart,
+         Indicator } from '../../components'
 import './liveChart.css'
 import { fetchStockDataAlphaVantage, 
          fetchStockTwelveDataTimeSeries,
-         fetchStockTwelveStocks} 
+         fetchStockTwelveStocks,
+         fetchTwelveDataIndicator} 
     from '../../services'
 
 
 function liveChart() {
 
     const [stocksList, setStockList] = useState([])
+
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
+    const [indicator, setIndicator] = useState([])
+
     const [searchResults, setSearchResults] = useState([])
     const [input, setInput] = useState("")
 
@@ -40,6 +45,10 @@ function liveChart() {
             setSearchResults([])
             setInput("")
         })
+
+        fetchTwelveDataIndicator(symbol).then(data => {
+            setIndicator(data)
+        })
     }
 
     return (
@@ -64,6 +73,7 @@ function liveChart() {
             {/* Draw the chart */}
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
             <CandelStickChart stockValues={stockDataValues}/>
+            <Indicator indicatorData={indicator}/>
         </div>
     )
 }

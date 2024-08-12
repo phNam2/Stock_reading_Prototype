@@ -6,3 +6,4 @@ export {default as SearchResultList} from './searchResultList/searchResultList'
 
 export {default as LiveChart} from './liveChart/liveChart'
 export {default as CandelStickChart} from './liveChart/CandleStick/CandleStick'
+export {default as Indicator} from './liveChart/indicator/indicator'

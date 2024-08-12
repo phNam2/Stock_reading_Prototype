@@ -5,7 +5,7 @@ import "./CandleStick.css"
 
 function CandelStickChart({stockValues}) {
 
-  console.log(stockValues)
+  // console.log(stockValues)
 
   const parseValues = stockValues.map(value => [
     value.datetime,
