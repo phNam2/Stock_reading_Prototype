@@ -22,6 +22,8 @@ function liveChart() {
     const [searchResults, setSearchResults] = useState([])
     const [input, setInput] = useState("")
 
+    const [components, setComponents] = useState([]);
+
     
     var effectRan = useRef(false) // prevent the API calling many times
     useEffect(() => {
@@ -51,6 +53,14 @@ function liveChart() {
         })
     }
 
+
+    const addComponent = () => {
+        setComponents((prevComponents) => [
+          ...prevComponents,
+          <div key={prevComponents.length}>New component {prevComponents.length}</div>,
+        ])
+    }
+
     return (
 
         <div>
@@ -73,9 +83,18 @@ function liveChart() {
             {/* Draw the chart */}
             <h1>Chart Page is here for {stockDataMeta.symbol}</h1>
             <CandelStickChart stockValues={stockDataValues}/>
-            <Indicator indicatorData={indicator}/>
+
+            {/* Indicator dection */}
+            {/* <Indicator indicatorData={indicator}/> */}
+            <button onClick={addComponent}>New component</button>
+            {components}
         </div>
     )
+
+
+    function ChildComponent(props) {
+        return <button style={{ color: props.color }}>{props.children}</button>;
+      }
 }
 
 export default liveChart
