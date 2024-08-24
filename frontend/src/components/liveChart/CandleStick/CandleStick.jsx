@@ -32,7 +32,7 @@ function CandelStickChart({stockValues}) {
       //     }
       //   }
       // },
-    }
+  }
   
   const series = [
       {

@@ -53,7 +53,7 @@ function liveChart() {
     }
 
 
-    const addComponent = () => {
+    function addComponent () {
         setComponents((prevComponents) => [
             ...prevComponents,
             <div key={prevComponents.length}>
@@ -86,7 +86,6 @@ function liveChart() {
             <CandelStickChart stockValues={stockDataValues}/>
 
             {/* Indicator dection */}
-            {/* <Indicator indicatorData={indicator}/> */}
             <button onClick={addComponent}>New component</button>
             {components}
         </div>
