@@ -18,11 +18,10 @@ function liveChart() {
     const [stockDataMeta, setStockDataMeta] = useState([])
     const [stockDataValues, setStockDataValues] = useState([])
     const [indicator, setIndicator] = useState([])
+    const [components, setComponents] = useState([]);
 
     const [searchResults, setSearchResults] = useState([])
     const [input, setInput] = useState("")
-
-    const [components, setComponents] = useState([]);
 
     
     var effectRan = useRef(false) // prevent the API calling many times
@@ -56,8 +55,10 @@ function liveChart() {
 
     const addComponent = () => {
         setComponents((prevComponents) => [
-          ...prevComponents,
-          <div key={prevComponents.length}>New component {prevComponents.length}</div>,
+            ...prevComponents,
+            <div key={prevComponents.length}>
+                <Indicator indicatorData={indicator} symbol={stockDataMeta.symbol}/>
+            </div>,
         ])
     }
 

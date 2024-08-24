@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const indicator = ({indicatorData}) => {
+export const indicator = ({indicatorData, symbol}) => {
     console.log(indicatorData)
 
     return (
-        <div>This is the indicator</div>
+        <div>This is the indicator {symbol}</div>
     )
 }
 
